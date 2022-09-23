@@ -24,7 +24,7 @@ function userLeave(id) {
 
 // Remove user
 function removeUser(id) {
-  users = user.filter(user => user.id !== id)
+  users = users.filter(user => user.id !== id)
 }
 
 // Get room users
