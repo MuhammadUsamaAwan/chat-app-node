@@ -5,6 +5,7 @@ const {
   getCurrentUser,
   userLeave,
   getRoomUsers,
+  removeUser
 } = require('./utils/users')
 const app = express()
 const http = require('http')
@@ -38,6 +39,7 @@ io.on('connection', socket => {
       io.to(user.room).emit('info', `${user.username} Has Left The Chat!`)
       // Send users and room info
       io.to(user.room).emit('room-users', getRoomUsers(user.room))
+      removeUser(socket.id)
     }
   })
 })
