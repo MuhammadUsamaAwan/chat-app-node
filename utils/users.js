@@ -16,11 +16,9 @@ function getCurrentUser(id) {
 
 // User leaves chat
 function userLeave(id) {
-  const index = users.findIndex(user => user.id === id)
-
-  if (index !== -1) {
-    return users.splice(index, 1)[0]
-  }
+  const user = users.find(user => user.id === id)
+  users = user.filter(user => user.id !== id)
+  return user
 }
 
 // Get room users
